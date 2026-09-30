@@ -3,660 +3,832 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadapalli Govind | DevOps Engineer</title>
-    <meta name="description" content="Aspiring DevOps Engineer — AWS Cloud, Docker, Kubernetes, CI/CD Automation">
+    <title>Jadapalli Govind — Cloud Architect & AI Systems Engineer</title>
+    <meta name="description" content="The Engineering Anthology of Jadapalli Govind — Cloud & DevOps Architect, Autonomous AI Builder. A story-driven narrative powered by Three.js, Liquid Glass, and GSAP.">
+    
+    <!-- Editorial & Engineering Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <link rel="stylesheet" href="index.css">
 </head>
-<body>
-    <!-- Scroll Progress -->
-    <div class="scroll-progress" aria-hidden="true"></div>
-
-    <!-- Particle Canvas -->
-    <canvas id="particles" aria-hidden="true"></canvas>
-
-    <!-- Grid Overlay -->
-    <div class="grid-overlay" aria-hidden="true"></div>
-
-    <!-- Preloader -->
-    <div class="preloader" aria-label="Loading">
-        <div class="preloader-inner">
-            <div class="preloader-ring"></div>
-            <div class="preloader-ring preloader-ring--2"></div>
-            <div class="preloader-logo">
-                <span class="glitch" data-text="JG">JG</span>
-            </div>
-            <div class="preloader-bar">
-                <div class="preloader-bar-fill"></div>
-            </div>
-            <span class="preloader-percent">0%</span>
-            <span class="preloader-label">INITIALIZING SYSTEM</span>
-        </div>
+<body class="story-body" data-chapter="prologue">
+    <!-- Top Minimalist Scroll Progress Laser -->
+    <div class="scroll-laser-track" aria-hidden="true">
+        <div class="scroll-laser-fill" id="scrollProgressFill"></div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
+    <!-- Liquid Lens Pointer (VisionOS Glass Optics) -->
+    <div class="liquid-lens-cursor" id="liquidCursor" aria-hidden="true">
+        <div class="lens-dot"></div>
+        <div class="lens-refraction"></div>
+    </div>
 
-    <!-- Navigation -->
+    <!-- Fixed Dynamic Background System (Morphs on Scroll per Chapter) -->
+    <div class="dynamic-canvas-backdrop" aria-hidden="true">
+        <canvas id="threeBackgroundCanvas" class="three-background-canvas"></canvas>
+        <div class="ambient-gradient-mesh" id="ambientMesh"></div>
+        <div class="subtle-grain-overlay"></div>
+    </div>
+
+    <!-- Chapter Navigation HUD (Right Rail Story Indicator) -->
+    <aside class="story-rail-hud" id="storyRail" aria-label="Story Chapters">
+        <div class="rail-indicator-line">
+            <div class="rail-active-pip" id="railActivePip"></div>
+        </div>
+        <ul class="rail-chapters-list">
+            <li><a href="#prologue" class="rail-item active" data-chapter-target="prologue"><span class="rail-num">00</span><span class="rail-label">Prologue</span></a></li>
+            <li><a href="#chapter-philosophy" class="rail-item" data-chapter-target="philosophy"><span class="rail-num">01</span><span class="rail-label">Philosophy</span></a></li>
+            <li><a href="#chapter-cloud" class="rail-item" data-chapter-target="cloud"><span class="rail-num">02</span><span class="rail-label">Cloud Forge</span></a></li>
+            <li><a href="#chapter-ai" class="rail-item" data-chapter-target="ai"><span class="rail-num">03</span><span class="rail-label">AI Systems</span></a></li>
+            <li><a href="#chapter-missions" class="rail-item" data-chapter-target="missions"><span class="rail-num">04</span><span class="rail-label">Missions</span></a></li>
+            <li><a href="#chapter-lab" class="rail-item" data-chapter-target="lab"><span class="rail-num">05</span><span class="rail-label">Interactive Lab</span></a></li>
+            <li><a href="#chapter-trajectory" class="rail-item" data-chapter-target="trajectory"><span class="rail-num">06</span><span class="rail-label">Trajectory</span></a></li>
+            <li><a href="#chapter-uplink" class="rail-item" data-chapter-target="uplink"><span class="rail-num">07</span><span class="rail-label">Uplink</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- Apple Dynamic Island Floating Navigation Dock -->
     <header class="header" id="header">
-        <a href="#home" class="logo">
-            <span class="logo-bracket">&lt;</span>JG<span class="logo-bracket">/&gt;</span>
-        </a>
-        <nav class="navbar">
-            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#playground" class="nav-link nav-link--play">Play</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#contact" class="nav-link nav-link--cta">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="dock-island glass-dock">
+            <a href="#prologue" class="dock-brand magnetic">
+                <span class="brand-brackets">&lt;</span><span class="brand-initials">JG</span><span class="brand-brackets">/&gt;</span>
+            </a>
+            <nav class="dock-navigation">
+                <button class="dock-mobile-toggle" id="dockToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="dock-menu-list" id="dockMenuList">
+                    <div class="dock-sliding-pill" id="dockSlidingPill"></div>
+                    <li><a href="#prologue" class="dock-link active">Signal</a></li>
+                    <li><a href="#chapter-philosophy" class="dock-link">Philosophy</a></li>
+                    <li><a href="#chapter-cloud" class="dock-link">Cloud</a></li>
+                    <li><a href="#chapter-ai" class="dock-link">AI Core</a></li>
+                    <li><a href="#chapter-missions" class="dock-link">Missions</a></li>
+                    <li><a href="#chapter-lab" class="dock-link">Lab</a></li>
+                    <li><a href="#chapter-trajectory" class="dock-link">Trajectory</a></li>
+                    <li><a href="#chapter-uplink" class="dock-link dock-link--connect">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <!-- Hero -->
-        <section id="home" class="hero">
-            <div class="hero-glow hero-glow--1"></div>
-            <div class="hero-glow hero-glow--2"></div>
-            <div class="hero-content">
-                <div class="hero-badge reveal">
-                    <span class="pulse-dot"></span>
-                    Available for Opportunities
-                </div>
-                <p class="hero-greeting reveal">Hello, World — I'm</p>
-                <h1 class="hero-name reveal">
-                    <span class="gradient-text">JADAPALLI</span>
-                    <span class="gradient-text-alt">GOVIND</span>
-                </h1>
-                <div class="hero-typed reveal">
-                    <span class="typed-prefix">&gt;</span>
-                    <span class="typed-text"></span>
-                    <span class="typed-cursor">|</span>
-                </div>
-                <p class="hero-summary reveal">
-                    Aspiring DevOps Engineer with hands-on experience in AWS Cloud, Docker, Kubernetes,
-                    Jenkins, CI/CD pipelines, and infrastructure automation. Passionate about deploying
-                    scalable cloud-native applications and DevOps best practices.
-                </p>
-                <div class="hero-actions reveal">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>View Projects</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="btn btn-outline">
-                        <span>Get In Touch</span>
-                    </a>
-                    <a href="#playground" class="btn btn-play">
-                        <span>Enter Playground</span>
-                        <i class="fa-solid fa-gamepad"></i>
-                    </a>
-                </div>
-                <div class="hero-social reveal">
-                    <a href="https://www.linkedin.com/in/govind28" target="_blank" rel="noopener" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/GoviGt650" target="_blank" rel="noopener" aria-label="GitHub">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a href="mailto:govindjadapalli28@gmail.com" aria-label="Email">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
-                    <a href="https://api.whatsapp.com/send/?phone=9381753363" target="_blank" rel="noopener" aria-label="WhatsApp">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual reveal">
-                <div class="hero-orbit">
-                    <div class="orbit-ring orbit-ring--1"></div>
-                    <div class="orbit-ring orbit-ring--2"></div>
-                    <div class="orbit-ring orbit-ring--3"></div>
-                    <div class="hero-avatar">
-                        <img src="images/me.jpg" alt="Jadapalli Govind" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="avatar-fallback" style="display:none">
-                            <span>JG</span>
+    <main class="story-stream">
+        <!-- ====================================================================
+             PROLOGUE: THE SIGNAL (IDENTITY & HERO)
+             ==================================================================== -->
+        <section id="prologue" class="story-chapter prologue-section" data-scene="prologue">
+            <div class="chapter-content-container">
+                <div class="prologue-hero-grid">
+                    <div class="prologue-narrative">
+                        <div class="chapter-marker-tag glass-pill st-reveal">
+                            <span class="marker-pulse"></span>
+                            <span class="marker-text">SIGNAL INITIALIZED · PROLOGUE</span>
                         </div>
-                        <div class="avatar-scanline"></div>
-                    </div>
-                    <div class="orbit-icon orbit-icon--1"><i class="fa-brands fa-aws"></i></div>
-                    <div class="orbit-icon orbit-icon--2"><i class="fa-brands fa-docker"></i></div>
-                    <div class="orbit-icon orbit-icon--3"><i class="fa-solid fa-dharmachakra"></i></div>
-                    <div class="orbit-icon orbit-icon--4"><i class="fa-solid fa-server"></i></div>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-card">
-                        <span class="stat-value" data-count="2">0</span>
-                        <span class="stat-label">Internships</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value" data-count="2">0</span>
-                        <span class="stat-label">Major Projects</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value" data-count="87">0</span>
-                        <span class="stat-label">B.Tech %</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- About -->
-        <section id="about" class="section about">
-            <div class="section-header reveal">
-                <span class="section-tag">&lt;about /&gt;</span>
-                <h2 class="section-title">Professional <span class="gradient-text">Summary</span></h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-grid">
-                <div class="glass-card about-card reveal">
-                    <div class="card-icon"><i class="fa-solid fa-user-astronaut"></i></div>
-                    <p>
-                        Aspiring <strong>DevOps Engineer</strong> with hands-on experience in AWS Cloud, Docker,
-                        Kubernetes, Jenkins, CI/CD pipelines, Linux, and infrastructure automation. Skilled in
-                        deploying scalable cloud-native applications, container orchestration, and cloud architecture design.
-                    </p>
-                    <p>
-                        Strong foundation in <strong>Java</strong> and <strong>MySQL</strong> with a passion for
-                        automation and DevOps best practices. Currently focused on building resilient, automated
-                        infrastructure that bridges development and operations.
-                    </p>
-                </div>
-                <div class="glass-card contact-card reveal">
-                    <h3>Contact Details</h3>
-                    <ul class="contact-list">
-                        <li>
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Nellore, Andhra Pradesh, India</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-phone"></i>
-                            <a href="tel:+919381753363">+91 9381753363</a>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-envelope"></i>
-                            <a href="mailto:govindjadapalli28@gmail.com">govindjadapalli28@gmail.com</a>
-                        </li>
-                        <li>
-                            <i class="fa-brands fa-linkedin-in"></i>
-                            <a href="https://www.linkedin.com/in/govind28" target="_blank" rel="noopener">linkedin.com/in/govind28</a>
-                        </li>
-                        <li>
-                            <i class="fa-brands fa-github"></i>
-                            <a href="https://github.com/GoviGt650" target="_blank" rel="noopener">github.com/GoviGt650</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="glass-card soft-skills-card reveal">
-                    <h3>Soft Skills & Interests</h3>
-                    <div class="tag-cloud">
-                        <span>Problem Solving</span>
-                        <span>Leadership</span>
-                        <span>Teamwork</span>
-                        <span>Communication</span>
-                        <span>Adaptability</span>
-                        <span>Continuous Learning</span>
-                        <span>Cloud Computing</span>
-                        <span>DevOps & Automation</span>
-                        <span>Sports & Fitness</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <h1 class="hero-headline st-reveal">
+                            <span class="headline-forename">JADAPALLI</span>
+                            <span class="headline-surname text-liquid-shimmer">GOVIND</span>
+                        </h1>
 
-        <!-- Skills -->
-        <section id="skills" class="section skills">
-            <div class="section-header reveal">
-                <span class="section-tag">&lt;skills /&gt;</span>
-                <h2 class="section-title">Technical <span class="gradient-text">Arsenal</span></h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-cat-header">
-                        <i class="fa-solid fa-cloud"></i>
-                        <h3>DevOps Tools</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item" data-level="90"><span>AWS</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="85"><span>Docker</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="80"><span>Kubernetes</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="85"><span>Jenkins / CI/CD</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="88"><span>Linux</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="90"><span>Git / GitHub</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="82"><span>Nginx</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="78"><span>Monitoring</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                    </div>
-                </div>
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-cat-header">
-                        <i class="fa-brands fa-aws"></i>
-                        <h3>Cloud Services</h3>
-                    </div>
-                    <div class="skill-pills">
-                        <span>EC2</span><span>VPC</span><span>RDS</span><span>S3</span>
-                        <span>CloudFront</span><span>ALB</span><span>ECR</span><span>IAM</span><span>NAT Gateway</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-cat-header">
-                        <i class="fa-solid fa-code"></i>
-                        <h3>Programming</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item" data-level="85"><span>Java</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="80"><span>JavaScript</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="78"><span>Python</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="75"><span>React</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                        <div class="skill-item" data-level="72"><span>Node.js</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                    </div>
-                </div>
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-cat-header">
-                        <i class="fa-solid fa-database"></i>
-                        <h3>Database</h3>
-                    </div>
-                    <div class="skill-items">
-                        <div class="skill-item" data-level="85"><span>MySQL</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive Playground -->
-        <section id="playground" class="section playground">
-            <div class="section-header reveal">
-                <span class="section-tag">&lt;playground /&gt;</span>
-                <h2 class="section-title">Interactive <span class="gradient-text">Playground</span></h2>
-                <p class="playground-subtitle">Flip cards · Build pipelines · Match tech — explore my stack by playing</p>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="game-tabs reveal">
-                <button class="game-tab active" data-game="deck" type="button">
-                    <i class="fa-solid fa-layer-group"></i> Skill Cards
-                </button>
-                <button class="game-tab" data-game="pipeline" type="button">
-                    <i class="fa-solid fa-diagram-project"></i> Deploy Puzzle
-                </button>
-                <button class="game-tab" data-game="memory" type="button">
-                    <i class="fa-solid fa-brain"></i> Memory Match
-                </button>
-                <button class="game-tab" data-game="stack" type="button">
-                    <i class="fa-solid fa-clone"></i> Card Stack
-                </button>
-            </div>
-
-            <!-- Skill Card Deck -->
-            <div class="game-panel active" id="game-deck">
-                <div class="game-hud reveal">
-                    <div class="hud-stat"><i class="fa-solid fa-star"></i> Collected: <strong id="collected-count">0</strong>/12</div>
-                    <button class="btn btn-sm" id="shuffle-deck" type="button"><i class="fa-solid fa-shuffle"></i> Shuffle</button>
-                    <button class="btn btn-sm btn-primary" id="draw-card" type="button"><i class="fa-solid fa-hand-sparkles"></i> Draw Random</button>
-                </div>
-                <div class="drawn-card-zone reveal" id="drawn-zone">
-                    <p class="drawn-hint">Draw a card or click any card below to flip & collect</p>
-                    <div class="drawn-card-slot" id="drawn-slot"></div>
-                </div>
-                <div class="skill-deck-grid" id="skill-deck"></div>
-            </div>
-
-            <!-- CI/CD Pipeline Puzzle -->
-            <div class="game-panel" id="game-pipeline">
-                <div class="game-hud reveal">
-                    <div class="hud-stat"><i class="fa-solid fa-clock"></i> Time: <strong id="pipeline-time">0</strong>s</div>
-                    <div class="hud-stat"><i class="fa-solid fa-bullseye"></i> Status: <strong id="pipeline-status">Waiting...</strong></div>
-                    <button class="btn btn-sm" id="reset-pipeline" type="button"><i class="fa-solid fa-rotate"></i> Reset</button>
-                </div>
-                <p class="game-instruction reveal">Drag the pipeline stages into the correct CI/CD order to deploy!</p>
-                <div class="pipeline-board reveal">
-                    <div class="pipeline-slots" id="pipeline-slots"></div>
-                    <div class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                    <div class="pipeline-deploy-zone" id="deploy-result">
-                        <i class="fa-solid fa-rocket"></i>
-                        <span>DEPLOY</span>
-                    </div>
-                </div>
-                <div class="pipeline-pool" id="pipeline-pool"></div>
-                <div class="pipeline-celebration hidden" id="pipeline-celebration" aria-hidden="true">
-                    <div class="celebration-burst"></div>
-                    <div class="celebration-rocket"><i class="fa-solid fa-rocket"></i></div>
-                    <div class="celebration-content">
-                        <h3><i class="fa-solid fa-circle-check"></i> Deployment Successful!</h3>
-                        <p>Pipeline completed in <strong id="celebration-time">0</strong>s</p>
-                        <div class="celebration-sparks">
-                            <span></span><span></span><span></span><span></span><span></span>
+                        <div class="editorial-role-call st-reveal">
+                            <span class="prompt-glyph">$</span>
+                            <span class="role-scroller-target" id="roleScroller"></span>
+                            <span class="type-cursor">_</span>
                         </div>
-                    </div>
-                    <canvas class="confetti-canvas" id="pipeline-confetti"></canvas>
-                </div>
-            </div>
 
-            <!-- Memory Match -->
-            <div class="game-panel" id="game-memory">
-                <div class="game-hud reveal">
-                    <div class="hud-stat"><i class="fa-solid fa-shoe-prints"></i> Moves: <strong id="memory-moves">0</strong></div>
-                    <div class="hud-stat"><i class="fa-solid fa-check-double"></i> Pairs: <strong id="memory-pairs">0</strong>/8</div>
-                    <div class="hud-stat"><i class="fa-solid fa-stopwatch"></i> <strong id="memory-time">0</strong>s</div>
-                    <button class="btn btn-sm" id="reset-memory" type="button"><i class="fa-solid fa-rotate"></i> New Game</button>
-                </div>
-                <div class="memory-board" id="memory-board"></div>
-                <div class="memory-win hidden" id="memory-win">
-                    <i class="fa-solid fa-trophy"></i>
-                    <h3>All Matched!</h3>
-                    <p id="memory-win-msg"></p>
-                </div>
-            </div>
+                        <p class="prologue-manifesto st-reveal">
+                            I design and operate mission-critical cloud infrastructure, resilient multi-tier distributed systems, and autonomous AI agents. Bridging zero-downtime reliability with state-of-the-art design engineering.
+                        </p>
 
-            <!-- Experience Card Stack -->
-            <div class="game-panel" id="game-stack">
-                <div class="game-hud reveal">
-                    <div class="hud-stat"><i class="fa-solid fa-id-card"></i> Card <strong id="stack-index">1</strong>/2</div>
-                    <p class="hud-hint">Swipe or use arrows — drag cards left/right</p>
-                </div>
-                <div class="card-stack-container reveal">
-                    <button class="stack-nav stack-nav--prev" id="stack-prev" type="button" aria-label="Previous card"><i class="fa-solid fa-chevron-left"></i></button>
-                    <div class="card-stack" id="card-stack"></div>
-                    <button class="stack-nav stack-nav--next" id="stack-next" type="button" aria-label="Next card"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-                <div class="stack-actions reveal">
-                    <button class="stack-btn stack-btn--pass" id="stack-pass" type="button"><i class="fa-solid fa-xmark"></i> Skip</button>
-                    <button class="stack-btn stack-btn--like" id="stack-like" type="button"><i class="fa-solid fa-heart"></i> Interested</button>
-                </div>
-                <p class="stack-counter" id="stack-likes">0 people would hire you based on these cards 😉</p>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects" class="section projects">
-            <div class="section-header reveal">
-                <span class="section-tag">&lt;projects /&gt;</span>
-                <h2 class="section-title">Mission <span class="gradient-text">Cards</span></h2>
-                <p class="playground-subtitle">Click a card to flip — hit Deploy to launch the mission</p>
-                <div class="section-line"></div>
-            </div>
-            <div class="mission-cards-grid">
-                <div class="mission-card-wrap reveal">
-                <div class="flip-card" data-mission="cloud">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front glass-card">
-                            <span class="mission-rarity legendary">LEGENDARY</span>
-                            <div class="mission-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-                            <h3>Cloud-Native Multi-Backend Deployment</h3>
-                            <p class="mission-type">Cloud Infrastructure Mission</p>
-                            <button class="flip-trigger" type="button" aria-label="Flip card"><i class="fa-solid fa-rotate"></i> Click to flip</button>
+                        <div class="prologue-actions st-reveal">
+                            <a href="#chapter-missions" class="btn btn-liquid-titanium magnetic">
+                                <span class="btn-caption">Explore Case Studies</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="#chapter-uplink" class="btn btn-liquid-glass magnetic">
+                                <span class="btn-caption">Initiate Transmission</span>
+                            </a>
                         </div>
-                        <div class="flip-card-back glass-card">
-                            <button class="flip-back-btn" type="button" aria-label="Flip back"><i class="fa-solid fa-arrow-left"></i></button>
-                            <h3>Mission Briefing</h3>
-                            <ul class="project-details">
-                                <li>3-tier AWS: VPC, subnets, IGW, NAT, ALB, EC2, RDS, S3, CloudFront</li>
-                                <li>Multi-backend: FastAPI, Django, Node.js, .NET via Docker Compose + Nginx</li>
-                                <li>CI/CD: Jenkins + ECR → GitHub to EC2 automation</li>
-                                <li>S3/CloudFront frontend with service switching & centralized logging</li>
-                            </ul>
-                            <div class="project-tech">
-                                <span>AWS</span><span>Docker</span><span>Jenkins</span><span>K8s</span><span>Nginx</span>
+
+                        <!-- Narrative Meta Anchors -->
+                        <div class="narrative-meta-strip st-reveal">
+                            <div class="meta-pillar">
+                                <span class="meta-label">Primary Cloud</span>
+                                <strong class="meta-value">AWS / Docker / K8s</strong>
                             </div>
-                            <button class="btn btn-primary btn-deploy" type="button" data-deploy="cloud">
-                                <i class="fa-solid fa-rocket"></i> Deploy Mission
+                            <div class="meta-divider"></div>
+                            <div class="meta-pillar">
+                                <span class="meta-label">Specialization</span>
+                                <strong class="meta-value">Autonomous AI & DevOps</strong>
+                            </div>
+                            <div class="meta-divider"></div>
+                            <div class="meta-pillar">
+                                <span class="meta-label">Location</span>
+                                <strong class="meta-value">Nellore, AP, India</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive 3D Hero Monolith -->
+                    <div class="prologue-visual st-reveal">
+                        <div class="hero-glass-viewport glass-card">
+                            <div class="viewport-hud-tag glass-pill">
+                                <i class="fa-solid fa-cube"></i> Three.js Core Monolith · Drag to Rotate
+                            </div>
+                            <canvas id="threeHeroCanvas" class="three-hero-canvas"></canvas>
+
+                            <!-- Floating Ambient Tech Nodes -->
+                            <div class="floating-tech-chip chip-aws glass-pill magnetic" title="Amazon Web Services">
+                                <i class="fa-brands fa-aws"></i> AWS Architecture
+                            </div>
+                            <div class="floating-tech-chip chip-k8s glass-pill magnetic" title="Kubernetes Cluster Engine">
+                                <i class="fa-solid fa-dharmachakra"></i> Kubernetes
+                            </div>
+                            <div class="floating-tech-chip chip-ai glass-pill magnetic" title="Autonomous AI Systems">
+                                <i class="fa-solid fa-brain"></i> Autonomous Bots
+                            </div>
+
+                            <!-- Bottom Metric Badges -->
+                            <div class="hero-metrics-ribbon">
+                                <div class="metric-card glass-card">
+                                    <span class="metric-figure" data-val="3">0</span>
+                                    <span class="metric-descriptor">Flagship Deployments</span>
+                                </div>
+                                <div class="metric-card glass-card">
+                                    <span class="metric-figure" data-val="2">0</span>
+                                    <span class="metric-descriptor">Industry Internships</span>
+                                </div>
+                                <div class="metric-card glass-card">
+                                    <span class="metric-figure" data-val="87">0</span>
+                                    <span class="metric-descriptor">B.Tech Aggregate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             CHAPTER 01: THE PHILOSOPHY (METHODOLOGY & ETHOS)
+             ==================================================================== -->
+        <section id="chapter-philosophy" class="story-chapter" data-scene="philosophy">
+            <div class="chapter-content-container">
+                <header class="chapter-editorial-header st-reveal">
+                    <span class="chapter-numeral">CHAPTER 01</span>
+                    <h2 class="chapter-title">The Engineering <span class="text-liquid-shimmer">Philosophy</span></h2>
+                    <p class="chapter-subtitle">Infrastructure should be code. Deployments should be boring. Systems should self-heal.</p>
+                </header>
+
+                <div class="philosophy-grid">
+                    <div class="glass-card philosophy-pillar-card st-reveal">
+                        <div class="pillar-icon-box">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="pillar-title">Resilience by Design</h3>
+                        <p class="pillar-text">
+                            Cloud architectures must assume failure at every boundary. By segregating private/public VPC subnets, deploying redundant multi-AZ Application Load Balancers, and enforcing container health checks, systems survive catastrophic network drops without customer interruption.
+                        </p>
+                    </div>
+
+                    <div class="glass-card philosophy-pillar-card st-reveal">
+                        <div class="pillar-icon-box">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="pillar-title">Frictionless Delivery</h3>
+                        <p class="pillar-text">
+                            Manual deployments introduce human error. Through end-to-end automated Jenkins pipelines and GitHub hooks, code moves from commit to containerized build, integration testing, and production rollout with zero downtime and instant rollback guarantees.
+                        </p>
+                    </div>
+
+                    <div class="glass-card philosophy-pillar-card st-reveal">
+                        <div class="pillar-icon-box">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="pillar-title">Intelligent Autonomy</h3>
+                        <p class="pillar-text">
+                            The future of software is autonomous. Merging real-time browser automation (Playwright/Chromium), live audio stream ingestion (WebRTC), and LLM reasoning pipelines creates self-operating agents that attend meetings, analyze transcripts, and generate executive summaries automatically.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Deep Narrative Quotation -->
+                <div class="glass-card editorial-quote-card st-reveal">
+                    <div class="quote-mark">“</div>
+                    <blockquote class="quote-body">
+                        "Great infrastructure is like oxygen: completely invisible until it's gone. My mission is to build software ecosystems that scale effortlessly, deploy seamlessly, and operate with absolute tranquility."
+                    </blockquote>
+                    <cite class="quote-author">— Jadapalli Govind, Cloud & DevOps Engineer</cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             CHAPTER 02: THE CLOUD FORGE (DEVOPS & AWS ARSENAL)
+             ==================================================================== -->
+        <section id="chapter-cloud" class="story-chapter" data-scene="cloud">
+            <div class="chapter-content-container">
+                <header class="chapter-editorial-header st-reveal">
+                    <span class="chapter-numeral">CHAPTER 02</span>
+                    <h2 class="chapter-title">The Cloud <span class="text-liquid-shimmer">Forge</span></h2>
+                    <p class="chapter-subtitle">Battle-tested competencies across cloud providers, container orchestration, and network architecture</p>
+                </header>
+
+                <div class="cloud-arsenal-grid">
+                    <!-- Column 1: Core DevOps Runtimes -->
+                    <div class="glass-card arsenal-column st-reveal">
+                        <div class="column-header">
+                            <div class="col-icon"><i class="fa-solid fa-cloud"></i></div>
+                            <div>
+                                <h3 class="col-title">DevOps & Cloud Orchestration</h3>
+                                <span class="col-sub">Core operational competencies</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-meter-collection">
+                            <div class="meter-block" data-level="92">
+                                <div class="meter-info">
+                                    <span class="meter-name">Amazon Web Services (AWS)</span>
+                                    <span class="meter-pct">92%</span>
+                                </div>
+                                <div class="meter-track"><div class="meter-fill"></div></div>
+                            </div>
+
+                            <div class="meter-block" data-level="88">
+                                <div class="meter-info">
+                                    <span class="meter-name">Docker Containerization</span>
+                                    <span class="meter-pct">88%</span>
+                                </div>
+                                <div class="meter-track"><div class="meter-fill"></div></div>
+                            </div>
+
+                            <div class="meter-block" data-level="84">
+                                <div class="meter-info">
+                                    <span class="meter-name">Kubernetes (Pod & Service Mgmt)</span>
+                                    <span class="meter-pct">84%</span>
+                                </div>
+                                <div class="meter-track"><div class="meter-fill"></div></div>
+                            </div>
+
+                            <div class="meter-block" data-level="86">
+                                <div class="meter-info">
+                                    <span class="meter-name">Jenkins & CI/CD Pipelines</span>
+                                    <span class="meter-pct">86%</span>
+                                </div>
+                                <div class="meter-track"><div class="meter-fill"></div></div>
+                            </div>
+
+                            <div class="meter-block" data-level="90">
+                                <div class="meter-info">
+                                    <span class="meter-name">Linux Core & Bash Scripting</span>
+                                    <span class="meter-pct">90%</span>
+                                </div>
+                                <div class="meter-track"><div class="meter-fill"></div></div>
+                            </div>
+
+                            <div class="meter-block" data-level="82">
+                                <div class="meter-info">
+                                    <span class="meter-name">Nginx Reverse Proxy & SSL</span>
+                                    <span class="meter-pct">82%</span>
+                                </div>
+                                <div class="meter-track"><div class="meter-fill"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: AWS Services Cloud -->
+                    <div class="glass-card arsenal-column st-reveal">
+                        <div class="column-header">
+                            <div class="col-icon"><i class="fa-brands fa-aws"></i></div>
+                            <div>
+                                <h3 class="col-title">Configured AWS Topology</h3>
+                                <span class="col-sub">Production-verified cloud services</span>
+                            </div>
+                        </div>
+
+                        <div class="aws-chips-gallery">
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-server"></i> EC2 Instances</div>
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-network-wired"></i> Virtual Private Cloud (VPC)</div>
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-arrows-split-up-and-left"></i> Application Load Balancer</div>
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-database"></i> RDS Relational Databases</div>
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-bucket"></i> S3 Cloud Storage</div>
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-bolt"></i> CloudFront CDN</div>
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-box-archive"></i> Elastic Container Registry (ECR)</div>
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-shield"></i> IAM Security & Policies</div>
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-route"></i> NAT Gateways & IGW</div>
+                            <div class="service-pill glass-pill"><i class="fa-solid fa-chart-line"></i> CloudWatch Observability</div>
+                        </div>
+
+                        <div class="software-languages-strip">
+                            <h4 class="strip-label">Programming & Languages</h4>
+                            <div class="lang-pills">
+                                <span class="glass-pill"><i class="fa-brands fa-python"></i> Python (FastAPI)</span>
+                                <span class="glass-pill"><i class="fa-brands fa-java"></i> Java (Core & OOP)</span>
+                                <span class="glass-pill"><i class="fa-brands fa-js"></i> JavaScript / Node</span>
+                                <span class="glass-pill"><i class="fa-solid fa-database"></i> MySQL / SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             CHAPTER 03: THE AI SYSTEMS (AUTONOMOUS AGENTS & WEBRTC)
+             ==================================================================== -->
+        <section id="chapter-ai" class="story-chapter" data-scene="ai">
+            <div class="chapter-content-container">
+                <header class="chapter-editorial-header st-reveal">
+                    <span class="chapter-numeral">CHAPTER 03</span>
+                    <h2 class="chapter-title">The AI <span class="text-liquid-shimmer">Core</span></h2>
+                    <p class="chapter-subtitle">Building autonomous bot runtimes, real-time media ingestion, and LLM reasoning pipelines</p>
+                </header>
+
+                <div class="ai-architecture-breakdown">
+                    <div class="glass-card ai-flow-card st-reveal">
+                        <div class="flow-step-badge">STEP 01</div>
+                        <div class="flow-icon"><i class="fa-solid fa-window-maximize"></i></div>
+                        <h3 class="flow-title">Autonomous Browser Ingestion</h3>
+                        <p class="flow-description">
+                            Custom Playwright Chromium runner navigates directly into video conferences, bypasses hardware prompts, and uses a custom Chrome Extension + OpenCV template matching for silent, automatic call admittance.
+                        </p>
+                    </div>
+
+                    <div class="glass-card ai-flow-card st-reveal">
+                        <div class="flow-step-badge">STEP 02</div>
+                        <div class="flow-icon"><i class="fa-solid fa-wave-square"></i></div>
+                        <h3 class="flow-title">Real-Time WebRTC Audio Tap</h3>
+                        <p class="flow-description">
+                            Captures uncompressed in-call WebRTC audio streams without requiring third-party bot credentials. Streams audio chunks asynchronously to local storage and converts them to whisper-ready formats.
+                        </p>
+                    </div>
+
+                    <div class="glass-card ai-flow-card st-reveal">
+                        <div class="flow-step-badge">STEP 03</div>
+                        <div class="flow-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3 class="flow-title">LLM Multi-Section Synthesis</h3>
+                        <p class="flow-description">
+                            Whisper speech-to-text generates timestamped transcripts, which are fed into an asynchronous FastAPI LLM pipeline to produce executive summaries, action items, speaker sentiment, and instant PDF reports.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             CHAPTER 04: MISSION LOGS (FLAGSHIP CASE STUDIES)
+             ==================================================================== -->
+        <section id="chapter-missions" class="story-chapter" data-scene="missions">
+            <div class="chapter-content-container">
+                <header class="chapter-editorial-header st-reveal">
+                    <span class="chapter-numeral">CHAPTER 04</span>
+                    <h2 class="chapter-title">Mission <span class="text-liquid-shimmer">Logs</span></h2>
+                    <p class="chapter-subtitle">Selected production deployments, complete with architectural blueprints and live simulations</p>
+                </header>
+
+                <div class="missions-deck-grid">
+                    <!-- Mission 1: Fireflies AI Meeting Notetaker (FLAGSHIP) -->
+                    <article class="mission-article glass-card st-reveal">
+                        <div class="mission-banner">
+                            <span class="mission-classification glass-pill">FLAGSHIP · AUTONOMOUS AI</span>
+                            <span class="mission-timeline">2026 Production</span>
+                        </div>
+
+                        <div class="mission-main-info">
+                            <div class="mission-avatar-box">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div>
+                                <h3 class="mission-headline">Autonomous AI Meeting Notetaker</h3>
+                                <p class="mission-subheading">Autonomous Google Meet Bot, Real-time WebRTC Streaming & LLM Pipeline</p>
+                            </div>
+                        </div>
+
+                        <div class="mission-narrative-body">
+                            <p>
+                                <strong>The Challenge:</strong> Most meeting transcription platforms rely on expensive proprietary bot services (like Recall.ai) that charge per-minute fees and expose meeting audio to third-party providers.
+                            </p>
+                            <p>
+                                <strong>The Solution:</strong> Built a self-hosted, sovereign meeting intelligence system. Engineered an automated Chromium bot via Playwright with a custom Chrome Extension that auto-admits into Google Meet. In-call WebRTC audio is captured, converted, and transcribed via Whisper. An asynchronous FastAPI LLM summarization pipeline extracts structured decisions, tasks, and sentiment analytics, generating downloadable PDF executive briefs.
+                            </p>
+                        </div>
+
+                        <div class="mission-tech-stack">
+                            <span class="glass-pill">Python</span>
+                            <span class="glass-pill">FastAPI</span>
+                            <span class="glass-pill">WebRTC</span>
+                            <span class="glass-pill">Playwright</span>
+                            <span class="glass-pill">OpenAI / LLM</span>
+                            <span class="glass-pill">Docker</span>
+                            <span class="glass-pill">SQLite</span>
+                        </div>
+
+                        <div class="mission-footer-actions">
+                            <button class="btn btn-liquid-titanium trigger-sim-btn magnetic" type="button" data-sim="notetaker">
+                                <i class="fa-solid fa-rocket"></i> Launch Bot Simulation
                             </button>
+                            <span class="sim-feedback-status" id="notetakerSimFeedback">Status: Standby</span>
                         </div>
-                    </div>
-                    <div class="deploy-animation" aria-hidden="true">
-                        <div class="deploy-blast"></div>
-                        <div class="deploy-log"></div>
-                        <div class="deploy-success-badge hidden">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span>MISSION LIVE</span>
+                    </article>
+
+                    <!-- Mission 2: Cloud-Native Multi-Backend Deployment -->
+                    <article class="mission-article glass-card st-reveal">
+                        <div class="mission-banner">
+                            <span class="mission-classification glass-pill">ENTERPRISE CLOUD ARCHITECTURE</span>
+                            <span class="mission-timeline">AWS Production</span>
                         </div>
-                    </div>
-                </div>
-                </div>
-                <div class="mission-card-wrap reveal">
-                <div class="flip-card" data-mission="portal">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front glass-card">
-                            <span class="mission-rarity epic">EPIC</span>
-                            <div class="mission-icon mission-icon--purple"><i class="fa-solid fa-graduation-cap"></i></div>
-                            <h3>Audisankara Community Portal</h3>
-                            <p class="mission-type">Web Platform Mission</p>
-                            <button class="flip-trigger" type="button" aria-label="Flip card"><i class="fa-solid fa-rotate"></i> Click to flip</button>
-                        </div>
-                        <div class="flip-card-back glass-card">
-                            <button class="flip-back-btn" type="button" aria-label="Flip back"><i class="fa-solid fa-arrow-left"></i></button>
-                            <h3>Mission Briefing</h3>
-                            <ul class="project-details">
-                                <li>Student collaboration & knowledge sharing platform</li>
-                                <li>Forums, study materials, syllabus, faculty engagement, complaints</li>
-                                <li>Posts, comments, auth & real-time updates</li>
-                            </ul>
-                            <div class="project-tech">
-                                <span>PHP</span><span>MySQL</span><span>JS</span><span>Tailwind</span><span>AJAX</span>
+
+                        <div class="mission-main-info">
+                            <div class="mission-avatar-box">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
                             </div>
-                            <button class="btn btn-primary btn-deploy" type="button" data-deploy="portal">
-                                <i class="fa-solid fa-rocket"></i> Deploy Mission
+                            <div>
+                                <h3 class="mission-headline">Cloud-Native Multi-Backend AWS Cluster</h3>
+                                <p class="mission-subheading">Production 3-Tier Multi-Service Architecture with Automated CI/CD</p>
+                            </div>
+                        </div>
+
+                        <div class="mission-narrative-body">
+                            <p>
+                                <strong>The Challenge:</strong> Modern enterprises require running polyglot backends (FastAPI, Django, Node.js, .NET) with centralized reverse proxy routing, strict VPC security boundaries, and automated zero-downtime deployment pipelines.
+                            </p>
+                            <p>
+                                <strong>The Solution:</strong> Architected a complete 3-tier AWS ecosystem featuring custom VPC, public/private subnets across multiple availability zones, NAT Gateway, Application Load Balancers, and EC2 container hosts. Orchestrated multi-service backends via Docker Compose with Nginx routing. Automated release pipelines using Jenkins + Amazon ECR for automated container image builds and deployments upon GitHub commits.
+                            </p>
+                        </div>
+
+                        <div class="mission-tech-stack">
+                            <span class="glass-pill">AWS (VPC, ALB, EC2, RDS, S3)</span>
+                            <span class="glass-pill">Docker Compose</span>
+                            <span class="glass-pill">Jenkins CI/CD</span>
+                            <span class="glass-pill">Amazon ECR</span>
+                            <span class="glass-pill">Nginx</span>
+                            <span class="glass-pill">CloudFront CDN</span>
+                        </div>
+
+                        <div class="mission-footer-actions">
+                            <button class="btn btn-liquid-titanium trigger-sim-btn magnetic" type="button" data-sim="cloud">
+                                <i class="fa-solid fa-rocket"></i> Simulate Infrastructure Rollout
                             </button>
+                            <span class="sim-feedback-status" id="cloudSimFeedback">Status: Standby</span>
                         </div>
+                    </article>
+
+                    <!-- Mission 3: Audisankara Community Hub -->
+                    <article class="mission-article glass-card st-reveal">
+                        <div class="mission-banner">
+                            <span class="mission-classification glass-pill">WEB PLATFORM & DATABASE</span>
+                            <span class="mission-timeline">Campus Scale</span>
+                        </div>
+
+                        <div class="mission-main-info">
+                            <div class="mission-avatar-box">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h3 class="mission-headline">Audisankara Community Knowledge Hub</h3>
+                                <p class="mission-subheading">Full-Stack Collaborative Platform with Role-Based Access Control</p>
+                            </div>
+                        </div>
+
+                        <div class="mission-narrative-body">
+                            <p>
+                                <strong>The Challenge:</strong> Campus academic departments and students struggled with fragmented communication, scattered syllabus materials, and lack of real-time discussion forums.
+                            </p>
+                            <p>
+                                <strong>The Solution:</strong> Developed an end-to-end community collaboration hub featuring real-time discussion forums, study material repositories, faculty announcement streams, and an issue resolution tracker. Optimized relational database schemas in MySQL with index tuning, role-based authorization, and asynchronous client-side AJAX interactions.
+                            </p>
+                        </div>
+
+                        <div class="mission-tech-stack">
+                            <span class="glass-pill">PHP</span>
+                            <span class="glass-pill">MySQL</span>
+                            <span class="glass-pill">JavaScript</span>
+                            <span class="glass-pill">Tailwind CSS</span>
+                            <span class="glass-pill">AJAX</span>
+                        </div>
+
+                        <div class="mission-footer-actions">
+                            <button class="btn btn-liquid-titanium trigger-sim-btn magnetic" type="button" data-sim="portal">
+                                <i class="fa-solid fa-rocket"></i> Check Platform Health
+                            </button>
+                            <span class="sim-feedback-status" id="portalSimFeedback">Status: Standby</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             CHAPTER 05: THE INTERACTIVE LAB (SANDBOX & TERMINAL)
+             ==================================================================== -->
+        <section id="chapter-lab" class="story-chapter" data-scene="lab">
+            <div class="chapter-content-container">
+                <header class="chapter-editorial-header st-reveal">
+                    <span class="chapter-numeral">CHAPTER 05</span>
+                    <h2 class="chapter-title">The Interactive <span class="text-liquid-shimmer">Lab</span></h2>
+                    <p class="chapter-subtitle">Tactile micro-tools demonstrating live command execution and DevOps pipeline staging</p>
+                </header>
+
+                <div class="interactive-lab-container">
+                    <!-- Interactive Terminal Emulator -->
+                    <div class="glass-card terminal-window-card st-reveal">
+                        <div class="terminal-chrome-header">
+                            <div class="terminal-dots">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                            </div>
+                            <div class="terminal-title">govind@cloud-bastion: ~ (bash)</div>
+                            <div class="terminal-actions">
+                                <span class="terminal-conn-status"><i class="fa-solid fa-circle"></i> Online</span>
+                            </div>
+                        </div>
+
+                        <div class="terminal-body-content" id="terminalOutput">
+                            <p class="term-line system-msg">Welcome to Jadapalli Govind's Cloud Console (v2.6.0).</p>
+                            <p class="term-line system-msg">Type <span class="cmd-highlight">'help'</span> for available commands, or explore: <span class="cmd-highlight">'status'</span>, <span class="cmd-highlight">'skills'</span>, <span class="cmd-highlight">'deploy'</span>, <span class="cmd-highlight">'contact'</span>.</p>
+                        </div>
+
+                        <form class="terminal-prompt-bar" id="terminalForm">
+                            <span class="term-prompt-label">govind@cloud-bastion:~$</span>
+                            <input type="text" id="terminalInput" class="term-input-field" placeholder="Type a command (e.g. 'status', 'skills', 'deploy')..." autocomplete="off" spellcheck="false">
+                            <button type="submit" class="term-submit-btn"><i class="fa-solid fa-arrow-turn-down"></i></button>
+                        </form>
                     </div>
-                    <div class="deploy-animation" aria-hidden="true">
-                        <div class="deploy-blast"></div>
-                        <div class="deploy-log"></div>
-                        <div class="deploy-success-badge hidden">
+
+                    <!-- Pipeline Stage Sorter -->
+                    <div class="glass-card pipeline-interactive-card st-reveal">
+                        <div class="pipeline-card-header">
+                            <div class="header-details">
+                                <h4>CI/CD Pipeline Flow Simulator</h4>
+                                <p>Click stages in correct delivery order (Code → Build → Test → Package → Deploy) to ship to AWS</p>
+                            </div>
+                            <button class="btn btn-sm btn-liquid-glass magnetic" id="resetPipelineBtn" type="button"><i class="fa-solid fa-rotate"></i> Reset</button>
+                        </div>
+
+                        <div class="pipeline-assembly-track" id="pipelineAssemblyTrack">
+                            <div class="assembly-slot" data-slot="0"><span>Stage 1</span></div>
+                            <div class="assembly-slot" data-slot="1"><span>Stage 2</span></div>
+                            <div class="assembly-slot" data-slot="2"><span>Stage 3</span></div>
+                            <div class="assembly-slot" data-slot="3"><span>Stage 4</span></div>
+                            <div class="assembly-slot" data-slot="4"><span>Stage 5</span></div>
+                        </div>
+
+                        <div class="pipeline-available-stages" id="pipelineAvailableStages">
+                            <!-- Injected dynamically -->
+                        </div>
+
+                        <div class="pipeline-result-banner hidden" id="pipelineResultBanner">
                             <i class="fa-solid fa-circle-check"></i>
-                            <span>MISSION LIVE</span>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience -->
-        <section id="experience" class="section experience">
-            <div class="section-header reveal">
-                <span class="section-tag">&lt;experience /&gt;</span>
-                <h2 class="section-title">Internships & <span class="gradient-text">Experience</span></h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-card glass-card">
-                        <div class="timeline-header">
-                            <h3>DevOps Engineer Trainee</h3>
-                            <span class="timeline-duration">3 Months</span>
-                        </div>
-                        <p class="timeline-company">Tudip Technologies Pvt. Ltd.</p>
-                        <ul>
-                            <li>Provisioned AWS cloud infrastructure and implemented Docker containerization for application environments</li>
-                            <li>Built CI/CD pipelines using Jenkins and GitHub for automated build, testing, and deployment workflows</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item reveal">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-card glass-card">
-                        <div class="timeline-header">
-                            <h3>Web Development Intern</h3>
-                            <span class="timeline-duration">6 Months</span>
-                        </div>
-                        <p class="timeline-company">Demy Software Solutions (DSS)</p>
-                        <ul>
-                            <li>Developed and maintained responsive web application features using modern web technologies</li>
-                            <li>Collaborated on database integration, bug fixing, and feature enhancements following best practices</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section id="education" class="section education">
-            <div class="section-header reveal">
-                <span class="section-tag">&lt;education /&gt;</span>
-                <h2 class="section-title">Academic <span class="gradient-text">Background</span></h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="education-grid">
-                <div class="edu-card glass-card reveal">
-                    <div class="edu-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                    <div class="edu-content">
-                        <span class="edu-year">2021 – 2025</span>
-                        <h3>Bachelor of Technology</h3>
-                        <p>Computer Science and Engineering</p>
-                        <p class="edu-institution">Audisankara College of Engineering & Technology</p>
-                        <span class="edu-score">87%</span>
-                    </div>
-                </div>
-                <div class="edu-card glass-card reveal">
-                    <div class="edu-icon"><i class="fa-solid fa-book"></i></div>
-                    <div class="edu-content">
-                        <span class="edu-year">2019 – 2021</span>
-                        <h3>Intermediate</h3>
-                        <p>Sri Chaitanya Junior College</p>
-                        <span class="edu-score">97%</span>
-                    </div>
-                </div>
-                <div class="edu-card glass-card reveal">
-                    <div class="edu-icon"><i class="fa-solid fa-school"></i></div>
-                    <div class="edu-content">
-                        <span class="edu-year">2019</span>
-                        <h3>SSC</h3>
-                        <p>S.V.R. E.M. High School</p>
-                        <span class="edu-score">97%</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="certifications reveal">
-                <h3 class="cert-title"><i class="fa-solid fa-certificate"></i> Certifications & Achievements</h3>
-                <div class="cert-grid cert-flip-grid">
-                    <div class="cert-flip reveal">
-                        <div class="cert-flip-inner">
-                            <div class="cert-flip-front glass-card"><i class="fa-brands fa-java"></i><span>Java Programming</span><small>Tap to reveal</small></div>
-                            <div class="cert-flip-back glass-card"><span>Codio Certification</span><i class="fa-solid fa-check-circle"></i></div>
-                        </div>
-                    </div>
-                    <div class="cert-flip reveal">
-                        <div class="cert-flip-inner">
-                            <div class="cert-flip-front glass-card"><i class="fa-brands fa-python"></i><span>Python</span><small>Tap to reveal</small></div>
-                            <div class="cert-flip-back glass-card"><span>IBM — EdX Platform</span><i class="fa-solid fa-check-circle"></i></div>
-                        </div>
-                    </div>
-                    <div class="cert-flip reveal">
-                        <div class="cert-flip-inner">
-                            <div class="cert-flip-front glass-card"><i class="fa-solid fa-diagram-project"></i><span>Data Structures</span><small>Tap to reveal</small></div>
-                            <div class="cert-flip-back glass-card"><span>With Python</span><i class="fa-solid fa-check-circle"></i></div>
-                        </div>
-                    </div>
-                    <div class="cert-flip reveal">
-                        <div class="cert-flip-inner">
-                            <div class="cert-flip-front glass-card"><i class="fa-solid fa-rocket"></i><span>Software Product Dev</span><small>Tap to reveal</small></div>
-                            <div class="cert-flip-back glass-card"><span>NSDC Certified</span><i class="fa-solid fa-check-circle"></i></div>
-                        </div>
-                    </div>
-                    <div class="cert-flip reveal">
-                        <div class="cert-flip-inner">
-                            <div class="cert-flip-front glass-card"><i class="fa-solid fa-shield-halved"></i><span>Privacy & Security</span><small>Tap to reveal</small></div>
-                            <div class="cert-flip-back glass-card"><span>NPTEL Course</span><i class="fa-solid fa-check-circle"></i></div>
-                        </div>
-                    </div>
-                    <div class="cert-flip reveal">
-                        <div class="cert-flip-inner">
-                            <div class="cert-flip-front glass-card"><i class="fa-solid fa-trophy"></i><span>SIH 2023</span><small>Tap to reveal</small></div>
-                            <div class="cert-flip-back glass-card"><span>Smart India Hackathon Participant</span><i class="fa-solid fa-check-circle"></i></div>
+                            <span>All Stages Verified! Automated Release Deployed to AWS EC2 Cluster.</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact -->
-        <section id="contact" class="section contact">
-            <div class="section-header reveal">
-                <span class="section-tag">&lt;contact /&gt;</span>
-                <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info reveal">
-                    <p>Ready to collaborate on cloud infrastructure, DevOps automation, or exciting new projects. Drop a message!</p>
-                    <div class="contact-channels">
-                        <a href="mailto:govindjadapalli28@gmail.com" class="channel-card glass-card">
-                            <i class="fa-solid fa-envelope"></i>
-                            <div>
-                                <span>Email</span>
-                                <strong>govindjadapalli28@gmail.com</strong>
+        <!-- ====================================================================
+             CHAPTER 06: THE TRAJECTORY (EXPERIENCE & PEDIGREE)
+             ==================================================================== -->
+        <section id="chapter-trajectory" class="story-chapter" data-scene="trajectory">
+            <div class="chapter-content-container">
+                <header class="chapter-editorial-header st-reveal">
+                    <span class="chapter-numeral">CHAPTER 06</span>
+                    <h2 class="chapter-title">Professional <span class="text-liquid-shimmer">Trajectory</span></h2>
+                    <p class="chapter-subtitle">Practical industry experience, engineering credentials, and academic foundations</p>
+                </header>
+
+                <div class="trajectory-timeline">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-chronicle-item st-reveal">
+                        <div class="chronicle-pin"></div>
+                        <div class="glass-card chronicle-card">
+                            <div class="chronicle-header">
+                                <div>
+                                    <h3 class="chronicle-role">DevOps Engineer Trainee</h3>
+                                    <p class="chronicle-org">Tudip Technologies Pvt. Ltd.</p>
+                                </div>
+                                <span class="chronicle-duration glass-pill">3 Months Industry Term</span>
                             </div>
-                        </a>
-                        <a href="tel:+919381753363" class="channel-card glass-card">
-                            <i class="fa-solid fa-phone"></i>
-                            <div>
-                                <span>Phone</span>
-                                <strong>+91 9381753363</strong>
+                            <ul class="chronicle-bullets">
+                                <li>Architected and managed AWS infrastructure components (EC2, VPC, S3) with strict IAM policies and security group isolation.</li>
+                                <li>Engineered automated CI/CD pipelines via Jenkins, automating Docker container builds, linting, tests, and deployment workflows.</li>
+                                <li>Collaborated across engineering teams to troubleshoot deployment bottlenecks and optimize container image layers.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-chronicle-item st-reveal">
+                        <div class="chronicle-pin"></div>
+                        <div class="glass-card chronicle-card">
+                            <div class="chronicle-header">
+                                <div>
+                                    <h3 class="chronicle-role">Web Development Intern</h3>
+                                    <p class="chronicle-org">Demy Software Solutions (DSS)</p>
+                                </div>
+                                <span class="chronicle-duration glass-pill">6 Months Industry Term</span>
                             </div>
-                        </a>
-                        <a href="https://www.linkedin.com/in/govind28" target="_blank" rel="noopener" class="channel-card glass-card">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                            <div>
-                                <span>LinkedIn</span>
-                                <strong>govind28</strong>
-                            </div>
-                        </a>
+                            <ul class="chronicle-bullets">
+                                <li>Developed and maintained responsive frontend application modules using modern HTML5, CSS3, and JavaScript standards.</li>
+                                <li>Streamlined MySQL database interactions, accelerating page render speeds and minimizing payload transfer sizes.</li>
+                                <li>Conducted bug triaging, automated feature validation, and participated in daily agile development cadences.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <form class="contact-form glass-card reveal" action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <!-- Academic Pedigree Grid -->
+                <div class="academic-pedigree-grid">
+                    <div class="glass-card pedigree-card st-reveal">
+                        <div class="pedigree-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="pedigree-body">
+                            <span class="pedigree-years">2021 – 2025</span>
+                            <h4 class="pedigree-degree">B.Tech in Computer Science & Engineering</h4>
+                            <p class="pedigree-school">Audisankara College of Engineering & Technology</p>
+                            <div class="pedigree-grade glass-pill">87% Aggregate Score</div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+                    <div class="glass-card pedigree-card st-reveal">
+                        <div class="pedigree-icon"><i class="fa-solid fa-book"></i></div>
+                        <div class="pedigree-body">
+                            <span class="pedigree-years">2019 – 2021</span>
+                            <h4 class="pedigree-degree">Intermediate (MPC Stream)</h4>
+                            <p class="pedigree-school">Sri Chaitanya Junior College</p>
+                            <div class="pedigree-grade glass-pill">97% Aggregate Score</div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+
+                    <div class="glass-card pedigree-card st-reveal">
+                        <div class="pedigree-icon"><i class="fa-solid fa-school"></i></div>
+                        <div class="pedigree-body">
+                            <span class="pedigree-years">2019</span>
+                            <h4 class="pedigree-degree">Secondary School Certificate (SSC)</h4>
+                            <p class="pedigree-school">S.V.R. E.M. High School</p>
+                            <div class="pedigree-grade glass-pill">97% Aggregate Score</div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">
-                        <span>Send Message</span>
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </form>
+                </div>
+
+                <!-- Certifications Strip -->
+                <div class="certifications-marquee-wrap st-reveal">
+                    <h3 class="cert-strip-title"><i class="fa-solid fa-certificate"></i> Verified Industry Accreditations</h3>
+                    <div class="cert-badges-deck">
+                        <div class="cert-pill-badge glass-card magnetic">
+                            <i class="fa-brands fa-java cert-brand-icon"></i>
+                            <div>
+                                <strong>Java Programming</strong>
+                                <span>Codio Certified</span>
+                            </div>
+                        </div>
+                        <div class="cert-pill-badge glass-card magnetic">
+                            <i class="fa-brands fa-python cert-brand-icon"></i>
+                            <div>
+                                <strong>Python Engineering</strong>
+                                <span>IBM — EdX</span>
+                            </div>
+                        </div>
+                        <div class="cert-pill-badge glass-card magnetic">
+                            <i class="fa-solid fa-diagram-project cert-brand-icon"></i>
+                            <div>
+                                <strong>Data Structures & Algorithms</strong>
+                                <span>Python DSA</span>
+                            </div>
+                        </div>
+                        <div class="cert-pill-badge glass-card magnetic">
+                            <i class="fa-solid fa-box-open cert-brand-icon"></i>
+                            <div>
+                                <strong>Software Product Dev</strong>
+                                <span>NSDC Certified</span>
+                            </div>
+                        </div>
+                        <div class="cert-pill-badge glass-card magnetic">
+                            <i class="fa-solid fa-shield-halved cert-brand-icon"></i>
+                            <div>
+                                <strong>Cloud Security & Privacy</strong>
+                                <span>NPTEL Certified</span>
+                            </div>
+                        </div>
+                        <div class="cert-pill-badge glass-card magnetic">
+                            <i class="fa-solid fa-trophy cert-brand-icon"></i>
+                            <div>
+                                <strong>Smart India Hackathon</strong>
+                                <span>SIH 2023 Finalist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             EPILOGUE / 07: ESTABLISH UPLINK (CONTACT & TRANSMISSION)
+             ==================================================================== -->
+        <section id="chapter-uplink" class="story-chapter" data-scene="uplink">
+            <div class="chapter-content-container">
+                <header class="chapter-editorial-header st-reveal">
+                    <span class="chapter-numeral">EPILOGUE / 07</span>
+                    <h2 class="chapter-title">Establish <span class="text-liquid-shimmer">Uplink</span></h2>
+                    <p class="chapter-subtitle">Open for cloud architecture roles, autonomous AI initiatives, and technical collaborations</p>
+                </header>
+
+                <div class="uplink-split-layout">
+                    <div class="uplink-dispatch-info st-reveal">
+                        <h3>Initiate direct contact.</h3>
+                        <p>
+                            Whether you are scaling cloud infrastructure on AWS, deploying automated CI/CD workflows, or building autonomous AI agents, let's connect and build systems of distinction.
+                        </p>
+
+                        <div class="uplink-channels-list">
+                            <a href="mailto:govindjadapalli28@gmail.com" class="uplink-channel-card glass-card magnetic">
+                                <div class="channel-icon-box"><i class="fa-solid fa-envelope"></i></div>
+                                <div>
+                                    <span class="channel-tag">Direct Email</span>
+                                    <strong class="channel-coord">govindjadapalli28@gmail.com</strong>
+                                </div>
+                            </a>
+                            <a href="tel:+919381753363" class="uplink-channel-card glass-card magnetic">
+                                <div class="channel-icon-box"><i class="fa-solid fa-phone"></i></div>
+                                <div>
+                                    <span class="channel-tag">Telephone</span>
+                                    <strong class="channel-coord">+91 9381753363</strong>
+                                </div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/govind28" target="_blank" rel="noopener" class="uplink-channel-card glass-card magnetic">
+                                <div class="channel-icon-box"><i class="fa-brands fa-linkedin-in"></i></div>
+                                <div>
+                                    <span class="channel-tag">LinkedIn Network</span>
+                                    <strong class="channel-coord">linkedin.com/in/govind28</strong>
+                                </div>
+                            </a>
+                            <a href="https://github.com/GoviGt650" target="_blank" rel="noopener" class="uplink-channel-card glass-card magnetic">
+                                <div class="channel-icon-box"><i class="fa-brands fa-github"></i></div>
+                                <div>
+                                    <span class="channel-tag">GitHub Portfolio</span>
+                                    <strong class="channel-coord">github.com/GoviGt650</strong>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="uplink-dispatch-form st-reveal">
+                        <form class="glass-card transmission-form" id="uplinkForm" onsubmit="event.preventDefault(); alert('Transmission dispatched! Jadapalli Govind will respond shortly.');">
+                            <div class="form-row">
+                                <label for="senderName">Your Name</label>
+                                <input type="text" id="senderName" name="name" class="glass-text-input" placeholder="e.g. Alex Morgan" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="senderEmail">Email Address</label>
+                                <input type="email" id="senderEmail" name="email" class="glass-text-input" placeholder="e.g. alex@enterprise.com" required>
+                            </div>
+                            <div class="form-row">
+                                <label for="transmissionMessage">Transmission Brief</label>
+                                <textarea id="transmissionMessage" name="message" class="glass-text-input" rows="5" placeholder="Describe your project, engineering scope, or collaboration..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-liquid-titanium btn-block magnetic">
+                                <span class="btn-caption">Dispatch Transmission</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Floating Play Button -->
-    <a href="#playground" class="fab-play" aria-label="Go to Playground" title="Playground">
-        <i class="fa-solid fa-gamepad"></i>
-        <span class="fab-pulse"></span>
-    </a>
-
-    <footer class="footer">
-        <div class="footer-glow"></div>
-        <div class="footer-content">
-            <a href="#home" class="footer-logo">&lt;JG /&gt;</a>
-            <div class="footer-social">
-                <a href="https://www.linkedin.com/in/govind28" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://github.com/GoviGt650" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-                <a href="https://api.whatsapp.com/send/?phone=9381753363" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="mailto:govindjadapalli28@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    <!-- Liquid Glass Editorial Footer -->
+    <footer class="story-footer">
+        <div class="footer-dock-bar glass-dock">
+            <div class="footer-brand-lockup">
+                <span class="brand-brackets">&lt;</span><span class="brand-initials">JG</span><span class="brand-brackets">/&gt;</span>
+                <span class="brand-subtext">Jadapalli Govind · Cloud Architect & AI Engineer</span>
             </div>
-            <p class="footer-copy">&copy; 2025 Jadapalli Govind. Crafted with <i class="fa-solid fa-bolt"></i> & DevOps passion.</p>
+            <div class="footer-social-icons">
+                <a href="https://www.linkedin.com/in/govind28" target="_blank" rel="noopener" class="footer-icon-pill magnetic"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/GoviGt650" target="_blank" rel="noopener" class="footer-icon-pill magnetic"><i class="fa-brands fa-github"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=9381753363" target="_blank" rel="noopener" class="footer-icon-pill magnetic"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:govindjadapalli28@gmail.com" class="footer-icon-pill magnetic"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p class="footer-copyright-note">
+                &copy; 2026 Jadapalli Govind · Crafted with Three.js WebGL, Liquid Titanium Glass & GSAP Story Engine
+            </p>
         </div>
     </footer>
 
+    <!-- Three.js 3D WebGL Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP 3 Ecosystem -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <!-- Story Engine Script -->
     <script src="index.js"></script>
 </body>
 </html>
